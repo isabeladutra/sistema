@@ -131,8 +131,8 @@ public class FornecedoresDAO {
 	
 	public static void main(String[] args) {
 		
-		/*  Fornecedores f1 = new Fornecedores(); 
-		  f1.setDescricao("HUGO VASCONCELOS");
+	  Fornecedores f1 = new Fornecedores(); 
+		  f1.setDescricao("LUCIA RODRIGUES");
 		 // Fornecedores f2 = new Fornecedores(); 
 		  //f2.setDescricao("Descricao 2");
 		  FornecedoresDAO fdao= new FornecedoresDAO(); 
@@ -143,7 +143,7 @@ public class FornecedoresDAO {
 		  } catch (SQLException e) {
 			  System.out.println("Erro ao salvar!");
 		  e.printStackTrace(); }
-		 */
+		 
 		
 		 /* Fornecedores f1 = new Fornecedores(); 
 		  f1.setCodigo(2);
@@ -202,7 +202,7 @@ public class FornecedoresDAO {
 			e.printStackTrace();
 		}*/
 		
-		Fornecedores f1 = new Fornecedores();
+		/*Fornecedores f1 = new Fornecedores();
 		f1.setDescricao("Is");
 		FornecedoresDAO fdao = new FornecedoresDAO();
 		try {
@@ -215,7 +215,7 @@ public class FornecedoresDAO {
 			// TODO Auto-generated catch block
 			System.out.println("Erro ao salvar!");
 			e.printStackTrace();
-		}
+		}*/
 
 	}
 }

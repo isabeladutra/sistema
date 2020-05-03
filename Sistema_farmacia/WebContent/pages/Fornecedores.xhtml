@@ -1,27 +1,53 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-xmlns:ui="http://java.sun.com/jsf/facelets"
-template="/templates/Modelo.xhtml"
-xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/templates/Modelo.xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-<ui:define name="menu">
-<ui:include src="/includes/menu.xhtml"></ui:include>
+	<ui:define name="menu">
+		<ui:include src="/includes/menu.xhtml"></ui:include>
 
-</ui:define>
-<ui:define name="conteudo">
-<p:dataTable emptyMessage="Nenhum registro encontrado">
-    <p:column headerText="Código">
-        
-    </p:column>
- 
-    <p:column headerText="Descrição">
-       
-    </p:column>
- 
+	</ui:define>
+	<ui:define name="conteudo">
+		<h:form>
+			<p:dataTable emptyMessage="Nenhum registro encontrado"
+				value="#{MBFornecedores.itens}" var="item" paginator="true" rows="8">
+				<f:facet name="header">Lista de Fornecedores</f:facet>
 
-</p:dataTable>
+				<p:column headerText="Código" sortBy="#{item.codigo}"
+					filterBy="#{item.codigo}">
+					<h:outputText value="#{item.codigo}" />
 
-</ui:define>
+				</p:column>
+
+				<p:column headerText="Descrição" sortBy="#{item.descricao}"
+					filterBy="#{item.descricao}">
+					<h:outputText value="#{item.descricao}" />
+
+				</p:column>
+				<f:facet name="footer">
+				
+				<p:commandButton value="Novo" onclick="PF('dlgforNovo').show();" />
+				</f:facet>
+
+
+			</p:dataTable>
+		</h:form>
+		<p:dialog widgetVar="dlgforNovo" closable="false" draggable="false"
+			resizable="false" header="Cadastrar Fornecedor"
+			modal="true" appendTo="@(body)">
+
+			<h:form>
+				<h:panelGrid columns="2"></h:panelGrid>
+				<p:outputLabel value="Descrição: " />
+				<h:inputText size="30" maxlenght="50" />
+				<h:panelGrid columns="2">
+					<p:commandButton value="Gravar" />
+					<p:commandButton value="Cancelar" onclick="PF('dlgforNovo').hide();" />
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+	</ui:define>
 </ui:composition>
